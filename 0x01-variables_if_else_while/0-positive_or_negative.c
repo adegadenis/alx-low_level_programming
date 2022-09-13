@@ -1,19 +1,20 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+
 /* more headers goes there */
 
 /* betty style doc for function main goes there */
 /**
- * main - Entry point
+ * main - Entry level
  *
  *Description: using the main function
- *Return; Always 0 (success)
+ *Return: Always 0 (success)
  */
 
 int main(void)
 {
-int n;
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
