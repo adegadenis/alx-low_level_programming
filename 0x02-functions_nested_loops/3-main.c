@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - check the code.
@@ -9,6 +9,8 @@ int main(void)
 {
 	int r;
 
+	r = 'H';
+	
 	r = _islower('H');
 	_putchar(r + '0');
 	r = _islower('o');
