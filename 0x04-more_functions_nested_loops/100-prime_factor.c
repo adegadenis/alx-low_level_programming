@@ -17,7 +17,7 @@ int main(void)
 		if (n % maxf == 0)
 		{
 			n /= maxf;
-			maxf++;
+			maxf--;
 																			}
 	}
 	printf("%ld\n", maxf);
