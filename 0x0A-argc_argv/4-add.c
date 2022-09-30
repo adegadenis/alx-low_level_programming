@@ -4,31 +4,26 @@
 
 /**
  * main - prints its name, followed by new.
- * @argc: argument counter.
- * @argv: argument vector.
+ * @argc: argument counter, number of command line arguments.
+ * @argv: argument vector-array that contains program command line arguments.
  * Return: zero.
  */
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
+	int i, j, add = 0;
 
-	if (argc == 1)
-	{
-		printf("%d\n", argc - 1);
-		return (0);
-	}
 	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			if (!((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == '-'))
+			if (!isdigit(argv[i][j]))
 			{
 				printf("Error\n");
 				return (1);
 			}
-			sum += atoi(argv[i]);
 		}
+		add += atoi(argv[i]);
 	}
-	printf("%d\n", sum);
+	printf("%d\n", add);
 	return (0);
 }
