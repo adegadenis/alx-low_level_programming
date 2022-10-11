@@ -1,5 +1,5 @@
-#ifndef ABS_H
-#define ABS_H
+#ifndef _HEADER_
+#define _HEADER_
 
 /*
  * File: 3-function_like_macro.h
@@ -8,6 +8,5 @@
  *       that computes the absolute value of a number x.
 */
 
-#define ABS(x) ((x) < 0 ? ((-x) : (x)))
-
-#endif /* ABS_H */
+#define ABS(x) ((x) < 0 ? ((x) * -1) : (x))
+#endif
