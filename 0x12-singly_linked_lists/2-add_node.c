@@ -1,40 +1,41 @@
+
 #include "lists.h"
+#include <string.h>
 
 /**
- * _strlen - Returns the lenght of a string.
- * @s: Type char pointer
- * Return: Always 0.
- */
-int _strlen(const char *s)
-{
-	unsigned int len;
-
-	for (len = 0; s[len] != '\0'; len++)
-	{
-	}
-	return (len);
-
-}
-
-/**
- * *add_node - Return the number of elements in a linked list
- * @head: data type poointer of struct node
- * @str: data type pointer of struct
-* Return: elements of the str i
+ * add_node - Adds a new node at the beginning
+ *            of a list_t list.
+ * @head: A pointer to the head of the list_t list.
+ * @str: The string to be added to the list_t list.
+ *
+ * Return: If the function fails - NULL.
+ *         Otherwise - the address of the new element.
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *n_node;
+	char *dup;
+	int len;
+	list_t *new;
 
-	n_node = malloc(sizeof(list_t));
-
-	if (n_node == NULL)
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
 		return (NULL);
 
-	n_node->str = strdup(str);
-	n_node->len = _strlen(str);
-	n_node->next = *head;
-	*head = n_node;
+	dup = strdup(str);
+	if (dup == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 
-	return (n_node);
+	for (len = 0; str[len];)
+		len++;
+
+	new->str = dup;
+	new->len = len;
+	new->next = *head;
+
+	*head = new;
+
+	return (new);
 }
